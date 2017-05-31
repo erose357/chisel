@@ -25,6 +25,18 @@ class Chisel
     to_html = "<h5>#{remove_md}</h5>"
   end
 
+  def paragraph(chunk)
+    "<p>#{chunk}</p>"
+  end
 
+  def emphasis(chunk)
+    remove_md = chunk.delete("*")
+    to_html = "<em>#{remove_md}</em>"
+  end
+
+  def strong(chunk)
+    remove_md = chunk.delete("*")
+    to_html = "<strong>#{remove_md}</strong>"
+  end
 
 end

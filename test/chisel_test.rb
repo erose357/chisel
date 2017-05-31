@@ -10,39 +10,60 @@ class ChiselTest < Minitest::Test
     assert_instance_of Chisel, ch
   end
 
-  def test_header_one
+  def test_header_one_tags
     ch = Chisel.new
-    header = "# Header 1"
+    md = "# Header 1"
 
-    assert_equal "<h1>Header 1</h1>", ch.header_one(header)
+    assert_equal "<h1>Header 1</h1>", ch.header_one(md)
   end
 
-  def test_header_two
+  def test_header_two_tags
     ch = Chisel.new
-    header = "## Header 2"
+    md = "## Header 2"
 
-    assert_equal "<h2>Header 2</h2>", ch.header_two(header)
+    assert_equal "<h2>Header 2</h2>", ch.header_two(md)
   end
 
-  def test_header_three
+  def test_header_three_tags
     ch = Chisel.new
-    header = "### Header 3"
+    md = "### Header 3"
 
-    assert_equal "<h3>Header 3</h3>", ch.header_three(header)
+    assert_equal "<h3>Header 3</h3>", ch.header_three(md)
   end
 
-  def test_header_four
+  def test_header_four_tags
     ch = Chisel.new
-    header = "#### Header 4"
+    md = "#### Header 4"
 
-    assert_equal "<h4>Header 4</h4>", ch.header_four(header)
+    assert_equal "<h4>Header 4</h4>", ch.header_four(md)
   end
 
-  def test_header_five
+  def test_header_five_tags
     ch = Chisel.new
-    header = "##### Header 5"
+    md = "##### Header 5"
 
-    assert_equal "<h5>Header 5</h5>", ch.header_five(header)
+    assert_equal "<h5>Header 5</h5>", ch.header_five(md)
+  end
+
+  def test_paragraph_tags
+    ch = Chisel.new
+    md = "This is a paragraph"
+
+    assert_equal "<p>This is a paragraph</p>", ch.paragraph(md)
+  end
+
+  def test_em_tags
+    ch = Chisel.new
+    md = "*emphasis*"
+
+    assert_equal "<em>emphasis</em>", ch.emphasis(md)
+  end
+
+  def test_strong_tags
+    ch = Chisel.new
+    md = "**strong**"
+
+    assert_equal "<strong>strong</strong>", ch.strong(md)
   end
 
 end
