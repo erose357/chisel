@@ -12,7 +12,7 @@ class ChiselTest < Minitest::Test
 
   def test_header_one
     ch = Chisel.new
-    header = # Header1
+    header = "# Header1"
 
     assert_equal "<h1>Header1</h1>", ch.header_one(header)
   end
