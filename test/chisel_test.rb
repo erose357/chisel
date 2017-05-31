@@ -66,4 +66,13 @@ class ChiselTest < Minitest::Test
     assert_equal "<strong>strong</strong>", ch.strong(md)
   end
 
+  def test_line_interpret
+    ch = Chisel.new
+    md = "This paragaph has a some **emphasis**"
+    expected = "<p>This paragraph has some <em>emphasis</em></p>"
+
+    assert_equal expected, ch.line_interpret
+  end
+
+
 end
